@@ -1,0 +1,138 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\workspace\\Github\\UrlShortener\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DAA66DFE-C793-4D6A-98B7-6FC6E6DDD196}|UrlShortener.Api\\UrlShortener.Api.csproj|d:\\workspace\\github\\urlshortener\\urlshortener.api\\controllers\\shortencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAA66DFE-C793-4D6A-98B7-6FC6E6DDD196}|UrlShortener.Api\\UrlShortener.Api.csproj|solutionrelative:urlshortener.api\\controllers\\shortencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAA66DFE-C793-4D6A-98B7-6FC6E6DDD196}|UrlShortener.Api\\UrlShortener.Api.csproj|d:\\workspace\\github\\urlshortener\\urlshortener.api\\dbcontext\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAA66DFE-C793-4D6A-98B7-6FC6E6DDD196}|UrlShortener.Api\\UrlShortener.Api.csproj|solutionrelative:urlshortener.api\\dbcontext\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAA66DFE-C793-4D6A-98B7-6FC6E6DDD196}|UrlShortener.Api\\UrlShortener.Api.csproj|d:\\workspace\\github\\urlshortener\\urlshortener.api\\constants\\shortlinksettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAA66DFE-C793-4D6A-98B7-6FC6E6DDD196}|UrlShortener.Api\\UrlShortener.Api.csproj|solutionrelative:urlshortener.api\\constants\\shortlinksettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAA66DFE-C793-4D6A-98B7-6FC6E6DDD196}|UrlShortener.Api\\UrlShortener.Api.csproj|d:\\workspace\\github\\urlshortener\\urlshortener.api\\services\\urlshorteningservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAA66DFE-C793-4D6A-98B7-6FC6E6DDD196}|UrlShortener.Api\\UrlShortener.Api.csproj|solutionrelative:urlshortener.api\\services\\urlshorteningservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAA66DFE-C793-4D6A-98B7-6FC6E6DDD196}|UrlShortener.Api\\UrlShortener.Api.csproj|d:\\workspace\\github\\urlshortener\\urlshortener.api\\models\\shortenurlrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAA66DFE-C793-4D6A-98B7-6FC6E6DDD196}|UrlShortener.Api\\UrlShortener.Api.csproj|solutionrelative:urlshortener.api\\models\\shortenurlrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAA66DFE-C793-4D6A-98B7-6FC6E6DDD196}|UrlShortener.Api\\UrlShortener.Api.csproj|d:\\workspace\\github\\urlshortener\\urlshortener.api\\extensions\\migrationextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAA66DFE-C793-4D6A-98B7-6FC6E6DDD196}|UrlShortener.Api\\UrlShortener.Api.csproj|solutionrelative:urlshortener.api\\extensions\\migrationextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAA66DFE-C793-4D6A-98B7-6FC6E6DDD196}|UrlShortener.Api\\UrlShortener.Api.csproj|d:\\workspace\\github\\urlshortener\\urlshortener.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAA66DFE-C793-4D6A-98B7-6FC6E6DDD196}|UrlShortener.Api\\UrlShortener.Api.csproj|solutionrelative:urlshortener.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\workspace\\Github\\UrlShortener\\UrlShortener.Api\\Program.cs",
+              "RelativeDocumentMoniker": "UrlShortener.Api\\Program.cs",
+              "ToolTip": "D:\\workspace\\Github\\UrlShortener\\UrlShortener.Api\\Program.cs",
+              "RelativeToolTip": "UrlShortener.Api\\Program.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAIA1wB0AAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-30T06:09:30.401Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MigrationExtensions.cs",
+              "DocumentMoniker": "D:\\workspace\\Github\\UrlShortener\\UrlShortener.Api\\Extensions\\MigrationExtensions.cs",
+              "RelativeDocumentMoniker": "UrlShortener.Api\\Extensions\\MigrationExtensions.cs",
+              "ToolTip": "D:\\workspace\\Github\\UrlShortener\\UrlShortener.Api\\Extensions\\MigrationExtensions.cs",
+              "RelativeToolTip": "UrlShortener.Api\\Extensions\\MigrationExtensions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-30T06:22:00.848Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ShortenUrlRequest.cs",
+              "DocumentMoniker": "D:\\workspace\\Github\\UrlShortener\\UrlShortener.Api\\Models\\ShortenUrlRequest.cs",
+              "RelativeDocumentMoniker": "UrlShortener.Api\\Models\\ShortenUrlRequest.cs",
+              "ToolTip": "D:\\workspace\\Github\\UrlShortener\\UrlShortener.Api\\Models\\ShortenUrlRequest.cs",
+              "RelativeToolTip": "UrlShortener.Api\\Models\\ShortenUrlRequest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-30T05:59:26.357Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ShortenController.cs",
+              "DocumentMoniker": "D:\\workspace\\Github\\UrlShortener\\UrlShortener.Api\\Controllers\\ShortenController.cs",
+              "RelativeDocumentMoniker": "UrlShortener.Api\\Controllers\\ShortenController.cs",
+              "ToolTip": "D:\\workspace\\Github\\UrlShortener\\UrlShortener.Api\\Controllers\\ShortenController.cs",
+              "RelativeToolTip": "UrlShortener.Api\\Controllers\\ShortenController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-30T05:57:13.626Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UrlShorteningService.cs",
+              "DocumentMoniker": "D:\\workspace\\Github\\UrlShortener\\UrlShortener.Api\\Services\\UrlShorteningService.cs",
+              "RelativeDocumentMoniker": "UrlShortener.Api\\Services\\UrlShorteningService.cs",
+              "ToolTip": "D:\\workspace\\Github\\UrlShortener\\UrlShortener.Api\\Services\\UrlShorteningService.cs",
+              "RelativeToolTip": "UrlShortener.Api\\Services\\UrlShorteningService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-30T05:47:59.217Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ShortLinkSettings.cs",
+              "DocumentMoniker": "D:\\workspace\\Github\\UrlShortener\\UrlShortener.Api\\Constants\\ShortLinkSettings.cs",
+              "RelativeDocumentMoniker": "UrlShortener.Api\\Constants\\ShortLinkSettings.cs",
+              "ToolTip": "D:\\workspace\\Github\\UrlShortener\\UrlShortener.Api\\Constants\\ShortLinkSettings.cs",
+              "RelativeToolTip": "UrlShortener.Api\\Constants\\ShortLinkSettings.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-30T05:43:43.548Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\workspace\\Github\\UrlShortener\\UrlShortener.Api\\DbContext\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "UrlShortener.Api\\DbContext\\ApplicationDbContext.cs",
+              "ToolTip": "D:\\workspace\\Github\\UrlShortener\\UrlShortener.Api\\DbContext\\ApplicationDbContext.cs",
+              "RelativeToolTip": "UrlShortener.Api\\DbContext\\ApplicationDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-30T05:39:50.023Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
