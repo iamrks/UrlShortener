@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  urlshortener:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:8080"
+    environment:
+      - ConnectionStrings__Database=<Database_Connection_String>
+      - HttpClient__Github__Token=<Token>

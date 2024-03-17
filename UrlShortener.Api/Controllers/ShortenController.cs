@@ -55,7 +55,7 @@ namespace UrlShortener.Api.Controllers
                 return NotFound();
             }
 
-            return Redirect(record.LongUrl);
+            return Ok(record.LongUrl);
         }
     }
 }

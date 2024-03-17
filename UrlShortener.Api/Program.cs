@@ -19,10 +19,12 @@ builder.Services.AddDbContext<ApplicationDbContext>(o =>
 // Register services
 builder.Services.AddScoped<UrlShorteningService>();
 
+builder.Services.AddHttpClient<GithubService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
@@ -30,7 +32,7 @@ if (app.Environment.IsDevelopment())
     app.ApplyMigrations();
 }
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
