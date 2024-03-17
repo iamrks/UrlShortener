@@ -16,9 +16,6 @@ RUN dotnet publish "UrlShortener.Api.csproj" -c $BUILD_CONFIGURATION -o /app/pub
 
 RUN dotnet dev-certs https --trust
 
-# Copy SSL certificate into the container
-COPY localhost.cer /app/publish/localhost.cer
-
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
