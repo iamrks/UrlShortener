@@ -35,7 +35,7 @@ $ dotnet user-secrets set "ConnectionStrings:Database" "<Database_Connection_Str
 
 ```Shell
 $ cd <repo_path>/UrlShortener
-$ cd dotnet run --project .\UrlShortener.Api\UrlShortener.Api.csproj --environment "Development" --launch-profile https
+$ dotnet run --project .\UrlShortener.Api\UrlShortener.Api.csproj --environment "Development" --launch-profile https
 ```
 
 ## Run with Docker
