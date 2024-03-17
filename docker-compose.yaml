@@ -10,3 +10,4 @@ services:
     environment:
       - ConnectionStrings__Database=<Database_Connection_String>
       - HttpClient__Github__Token=<Token>
+      - Logging__Seq__ApiKey=<ApiKey>

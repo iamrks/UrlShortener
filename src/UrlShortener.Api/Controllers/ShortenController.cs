@@ -12,22 +12,28 @@ namespace UrlShortener.Api.Controllers
     {
         private readonly UrlShorteningService _urlShorteningService;
         private readonly ApplicationDbContext _dbContext;
+        private readonly ILogger<ShortenController> _logger;
 
         public ShortenController(
             UrlShorteningService urlShorteningService,
-            ApplicationDbContext dbContext)
+            ApplicationDbContext dbContext,
+            ILogger<ShortenController> logger)
         {
             _urlShorteningService = urlShorteningService;
             _dbContext = dbContext;
+            _logger = logger;
         }
 
         [HttpPost]
         public async Task<IActionResult> Post(ShortenUrlRequest request)
         {
             if (!Uri.TryCreate(request.Url, UriKind.Absolute, out _))
+            {
+                _logger.LogInformation("The specified Url '{Url}' is not valid", request.Url);
                 return BadRequest("The specified Url is invalid");
+            }
 
-            var code = await _urlShorteningService.GenerateUnqiueCode();
+            var code = await _urlShorteningService.GenerateUniqueCode();
 
             var shortenedUrl = new ShortenedUrl()
             {

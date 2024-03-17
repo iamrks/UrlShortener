@@ -21,6 +21,8 @@ builder.Services.AddScoped<UrlShorteningService>();
 
 builder.Services.AddHttpClient<GithubService>();
 
+builder.Services.AddSeqLogging(builder.Configuration);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

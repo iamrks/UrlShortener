@@ -16,6 +16,7 @@
 $ cd <repo_path>/UrlShortener/src/UrlShortener.Api
 $ dotnet user-secrets set 'HttpClient:Github:Token' '<Token>'
 $ dotnet user-secrets set "ConnectionStrings:Database" "<Database_Connection_String>"
+$ dotnet user-secrets set "Seq:ApiKey" "<Api_Key>"
 ```
 
 ## Development with Visual Studio
@@ -28,6 +29,11 @@ $ dotnet user-secrets set "ConnectionStrings:Database" "<Database_Connection_Str
 1. Install [VS Code](https://code.visualstudio.com/download).
 2. Install C# extension (`ms-vscode.csharp`) in VS Code.
 3. Open the folder containing the .sln file
+
+## Install Seq for local development logging
+
+1. Install [Seq](https://datalust.co/download)
+2. After installing browse at default url http://localhost:5341/
 
 # Running the App
 

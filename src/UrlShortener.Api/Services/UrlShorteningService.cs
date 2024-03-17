@@ -7,7 +7,7 @@ namespace UrlShortener.Api.Services
     {
         private readonly Random random = new();
 
-        public async Task<string> GenerateUnqiueCode()
+        public async Task<string> GenerateUniqueCode()
         {
             var codeChars = new char[ShortLinkSettings.Length];
             int maxValue = ShortLinkSettings.Alphabet.Length;
