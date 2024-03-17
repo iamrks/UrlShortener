@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace UrlShortener.Api.Extensions
+namespace UrlShortener.Extensions
 {
     public static class MigrationExtensions
     {

@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using UrlShortener.Api;
-using UrlShortener.Api.Extensions;
-using UrlShortener.Api.Services;
+using UrlShortener;
+using UrlShortener.Extensions;
+using UrlShortener.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

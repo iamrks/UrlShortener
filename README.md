@@ -13,7 +13,7 @@
 4. Set user secrets, if you want to run the application outside docker for debugging and other scenarios
 
 ```Shell
-$ cd <repo_path>/UrlShortener/src/UrlShortener.Api
+$ cd <repo_path>/UrlShortener/src/UrlShortener
 $ dotnet user-secrets set 'HttpClient:Github:Token' '<Token>'
 $ dotnet user-secrets set "ConnectionStrings:Database" "<Database_Connection_String>"
 $ dotnet user-secrets set "Seq:ApiKey" "<Api_Key>"
@@ -41,7 +41,7 @@ $ dotnet user-secrets set "Seq:ApiKey" "<Api_Key>"
 
 ```Shell
 $ cd <repo_path>/UrlShortener
-$ dotnet run --project .\src\UrlShortener.Api\UrlShortener.Api.csproj --environment "Development" --launch-profile https
+$ dotnet run --project .\src\UrlShortener\UrlShortener.csproj --environment "Development" --launch-profile https
 ```
 
 ## Run with Docker

@@ -1,4 +1,4 @@
-namespace UrlShortener.Api.Extensions;
+namespace UrlShortener.Extensions;
 
 public static class ServicesExtensions
 {

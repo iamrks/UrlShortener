@@ -1,4 +1,4 @@
-﻿namespace UrlShortener.Api.Constants
+﻿namespace UrlShortener.Constants
 {
     public static class ShortLinkSettings
     {

@@ -1,4 +1,4 @@
-namespace UrlShortener.Api
+namespace UrlShortener
 {
     public class WeatherForecast
     {

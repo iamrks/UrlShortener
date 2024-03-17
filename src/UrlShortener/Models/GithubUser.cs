@@ -1,4 +1,4 @@
-﻿namespace UrlShortener.Api.Models
+﻿namespace UrlShortener.Models
 {
     using System.Text.Json.Serialization;
 

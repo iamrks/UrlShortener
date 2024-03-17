@@ -1,4 +1,4 @@
-﻿namespace UrlShortener.Api.Models
+﻿namespace UrlShortener.Models
 {
     public class ShortenUrlRequest
     {

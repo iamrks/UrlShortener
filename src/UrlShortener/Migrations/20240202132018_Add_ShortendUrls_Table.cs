@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace UrlShortener.Api.Migrations
+namespace UrlShortener.Migrations
 {
     /// <inheritdoc />
     public partial class Add_ShortendUrls_Table : Migration

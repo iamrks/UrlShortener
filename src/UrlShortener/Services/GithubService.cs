@@ -1,7 +1,7 @@
 ﻿using System.Net.Http.Headers;
-using UrlShortener.Api.Models;
+using UrlShortener.Models;
 
-namespace UrlShortener.Api.Services
+namespace UrlShortener.Services
 {
     public interface IGithubService
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using UrlShortener.Api.Constants;
+using UrlShortener.Constants;
 
-namespace UrlShortener.Api.Services
+namespace UrlShortener.Services
 {
     public class UrlShorteningService (ApplicationDbContext dbContext)
     {

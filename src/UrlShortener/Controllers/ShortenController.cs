@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using UrlShortener.Api.Models;
-using UrlShortener.Api.Services;
+using UrlShortener.Models;
+using UrlShortener.Services;
 using UrlShortener.Entities;
 
-namespace UrlShortener.Api.Controllers
+namespace UrlShortener.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
