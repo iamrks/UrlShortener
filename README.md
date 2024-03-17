@@ -13,9 +13,9 @@
 4. Set user secrets, if you want to run the application outside docker for debugging and other scenarios
 
 ```Shell
-$ cd <repo_path>/UrlShortener
-$ dotnet user-secrets set 'HttpClient:Github:Token' '<Token>' --project .\UrlShortener.Api\UrlShortener.Api.csproj
-$ dotnet user-secrets set "ConnectionStrings:Database" "<Database_Connection_String>" --project .\UrlShortener.Api\UrlShortener.Api.csproj
+$ cd <repo_path>/UrlShortener/src/UrlShortener.Api
+$ dotnet user-secrets set 'HttpClient:Github:Token' '<Token>'
+$ dotnet user-secrets set "ConnectionStrings:Database" "<Database_Connection_String>"
 ```
 
 ## Development with Visual Studio
@@ -35,7 +35,7 @@ $ dotnet user-secrets set "ConnectionStrings:Database" "<Database_Connection_Str
 
 ```Shell
 $ cd <repo_path>/UrlShortener
-$ dotnet run --project .\UrlShortener.Api\UrlShortener.Api.csproj --environment "Development" --launch-profile https
+$ dotnet run --project .\src\UrlShortener.Api\UrlShortener.Api.csproj --environment "Development" --launch-profile https
 ```
 
 ## Run with Docker
@@ -78,12 +78,3 @@ $ docker images
 # To remove a image
 $ docker rmi iamrks/urls --force
 ```
-
-
-
-
-
-
-
-
-
