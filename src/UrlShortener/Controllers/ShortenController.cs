@@ -51,7 +51,7 @@ namespace UrlShortener.Controllers
             return Ok(shortenedUrl.ShortUrl);
         }
 
-        [HttpGet("/{code}")]
+        [HttpGet("{code}")]
         public async Task<IActionResult> Get(string code)
         {
             var record = await _dbContext.ShortenedUrls.FirstOrDefaultAsync(c => c.Code == code);
@@ -62,6 +62,17 @@ namespace UrlShortener.Controllers
             }
 
             return Ok(record.LongUrl);
+        }
+
+        [HttpGet]
+        public async IAsyncEnumerable<string> Get()
+        {
+            var list = await _dbContext.ShortenedUrls.ToListAsync();
+
+            foreach (var item in list)
+            {
+                yield return item.LongUrl;
+            }
         }
     }
 }
