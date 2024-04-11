@@ -17,6 +17,7 @@ $ cd <repo_path>/UrlShortener/src/UrlShortener
 $ dotnet user-secrets set 'HttpClient:Github:Token' '<Token>'
 $ dotnet user-secrets set "ConnectionStrings:Database" "<Database_Connection_String>"
 $ dotnet user-secrets set "Seq:ApiKey" "<Api_Key>"
+$ dotnet user-secrets set "LaunchDarkly:SdkKey" "<SdkKey>"
 ```
 
 ## Development with Visual Studio
@@ -34,6 +35,11 @@ $ dotnet user-secrets set "Seq:ApiKey" "<Api_Key>"
 
 1. Install [Seq](https://datalust.co/download)
 2. After installing browse at default url http://localhost:5341/
+
+# LaunchDarkly Service
+1. Create your [LaunchDarkly][https://app.launchdarkly.com] account
+2. Create Feature Flag
+
 
 # Running the App
 

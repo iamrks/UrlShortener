@@ -1,7 +1,9 @@
+using LaunchDarkly.Sdk.Server;
 using Microsoft.EntityFrameworkCore;
 using UrlShortener;
 using UrlShortener.Extensions;
 using UrlShortener.Services;
+using UrlShortener.Services.FeatureFlag;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +24,11 @@ builder.Services.AddScoped<UrlShorteningService>();
 builder.Services.AddHttpClient<GithubService>();
 
 builder.Services.AddSeqLogging(builder.Configuration);
+
+var ldKey = builder.Configuration["LaunchDarkly:SdkKey"];
+builder.Services.AddSingleton(new LdClient(Configuration.Default(ldKey)));
+builder.Services.AddSingleton<ILdContextService, LdContextService>();
+builder.Services.AddSingleton<IFeatureFlagService, LaunchDarklyFeatureFlagService>();
 
 var app = builder.Build();
 
