@@ -22,4 +22,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\UrlShortener.Domain\UrlShortener.Domain.csproj" />
+    <ProjectReference Include="..\..\UrlShortener.Persistence\UrlShortener.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>

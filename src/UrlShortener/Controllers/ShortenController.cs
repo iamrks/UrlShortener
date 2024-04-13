@@ -41,7 +41,6 @@ namespace UrlShortener.Controllers
                 LongUrl = request.Url,
                 Code = code,
                 ShortUrl = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}/api/{code}",
-                CreatedOnUtc = DateTime.UtcNow
             };
 
             _dbContext.ShortenedUrls.Add(shortenedUrl);

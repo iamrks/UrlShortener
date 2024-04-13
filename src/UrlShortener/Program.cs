@@ -2,6 +2,7 @@ using LaunchDarkly.Sdk.Server;
 using Microsoft.EntityFrameworkCore;
 using UrlShortener;
 using UrlShortener.Extensions;
+using UrlShortener.Persistence.Interceptors;
 using UrlShortener.Services;
 using UrlShortener.Services.FeatureFlag;
 
@@ -15,15 +16,21 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // setup EF Core
-builder.Services.AddDbContext<ApplicationDbContext>(o =>
-    o.UseSqlServer(builder.Configuration.GetConnectionString("Database")));
+builder.Services.AddDbContext<ApplicationDbContext>(
+    (sp, optionsBuilder) =>
+    {
+        var auditableInterceptor = sp.GetService<UpdateAuditableEntitiesInterceptor>();
+
+        optionsBuilder
+            .UseSqlServer(builder.Configuration.GetConnectionString("Database"))
+            .AddInterceptors(auditableInterceptor);
+    });
 
 // Register services
 builder.Services.AddScoped<UrlShorteningService>();
-
 builder.Services.AddHttpClient<GithubService>();
-
 builder.Services.AddSeqLogging(builder.Configuration);
+builder.Services.AddSingleton<UpdateAuditableEntitiesInterceptor>();
 
 var ldKey = builder.Configuration["LaunchDarkly:SdkKey"];
 builder.Services.AddSingleton(new LdClient(Configuration.Default(ldKey)));

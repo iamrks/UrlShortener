@@ -1,11 +1,13 @@
-﻿namespace UrlShortener.Entities
+﻿using UrlShortener.Domain.Primitives;
+
+namespace UrlShortener.Entities;
+
+public sealed class ShortenedUrl : IAuditableEntity
 {
-    public class ShortenedUrl
-    {
-        public Guid Id { get; set; }
-        public string LongUrl { get; set; } = string.Empty;
-        public string ShortUrl { get; set; } = string.Empty;
-        public string Code { get; set; } = string.Empty;
-        public DateTime CreatedOnUtc { get; set; }
-    }
+    public Guid Id { get; set; }
+    public string LongUrl { get; set; } = string.Empty;
+    public string ShortUrl { get; set; } = string.Empty;
+    public string Code { get; set; } = string.Empty;
+    public DateTime CreatedOnUtc { get; set; }
+    public DateTime? ModifiedOnUtc { get; set; }
 }
