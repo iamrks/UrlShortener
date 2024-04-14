@@ -1,7 +1,6 @@
-﻿namespace UrlShortener.Models
+﻿namespace UrlShortener.Models;
+
+public class ShortenUrlRequest
 {
-    public class ShortenUrlRequest
-    {
-        public string Url { get; set; } = string.Empty;
-    }
+    public string Url { get; set; } = string.Empty;
 }

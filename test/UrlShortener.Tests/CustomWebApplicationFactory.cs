@@ -5,45 +5,45 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Data.Common;
 using System.Text;
+using UrlShortener.Persistence.DbContexts;
 
-namespace UrlShortener.Tests
+namespace UrlShortener.Tests;
+
+public class CustomWebApplicationFactory<TProgram> : WebApplicationFactory<TProgram> where TProgram : class
 {
-    public class CustomWebApplicationFactory<TProgram> : WebApplicationFactory<TProgram> where TProgram : class
+    protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
-        protected override void ConfigureWebHost(IWebHostBuilder builder)
+        builder.UseEnvironment("Staging");
+
+        builder.ConfigureAppConfiguration((ctx, config) =>
         {
-            builder.UseEnvironment("Staging");
+            var keyValuePairs = Enumerable.Empty<KeyValuePair<string, string?>>()
+                .Append(new KeyValuePair<string, string?>("HttpClient:Github:Token", ""))
+                .Append(new KeyValuePair<string, string?>("Logging:Seq:ServerUrl", ""))
+                .Append(new KeyValuePair<string, string?>("Logging:Seq:ApiKey", ""));
 
-            builder.ConfigureAppConfiguration((ctx, config) =>
-            {
-                var keyValuePairs = Enumerable.Empty<KeyValuePair<string, string?>>()
-                    .Append(new KeyValuePair<string, string?>("HttpClient:Github:Token", ""))
-                    .Append(new KeyValuePair<string, string?>("Logging:Seq:ServerUrl", ""))
-                    .Append(new KeyValuePair<string, string?>("Logging:Seq:ApiKey", ""));
-
-                config.AddInMemoryCollection(keyValuePairs);
-            });
+            config.AddInMemoryCollection(keyValuePairs);
+        });
 
 
-            builder.ConfigureServices(services =>
-            {
-                var dbContextDescriptor = services.SingleOrDefault(
-                    d => d.ServiceType == typeof(DbContextOptions<ApplicationDbContext>));
-
-                if (dbContextDescriptor is not null) services.Remove(dbContextDescriptor);
-
-                var dbConnectionDescriptor = services.SingleOrDefault(
-                    d => d.ServiceType == typeof(DbConnection));
-
-                if (dbConnectionDescriptor is not null) services.Remove(dbConnectionDescriptor);
-
-                UseInMemoryDatabase<ApplicationDbContext>(services);
-            });
-        }
-
-        private void UseInMemoryDatabase<TContext>(IServiceCollection services) where TContext : DbContext
+        builder.ConfigureServices(services =>
         {
-            services.AddDbContext<TContext>(options => { options.UseInMemoryDatabase("InMemoryDbForTesting"); });
-        }
+            var dbContextDescriptor = services.SingleOrDefault(
+                d => d.ServiceType == typeof(DbContextOptions<ApplicationDbContext>));
+
+            if (dbContextDescriptor is not null) services.Remove(dbContextDescriptor);
+
+            var dbConnectionDescriptor = services.SingleOrDefault(
+                d => d.ServiceType == typeof(DbConnection));
+
+            if (dbConnectionDescriptor is not null) services.Remove(dbConnectionDescriptor);
+
+            UseInMemoryDatabase<ApplicationDbContext>(services);
+        });
+    }
+
+    private void UseInMemoryDatabase<TContext>(IServiceCollection services) where TContext : DbContext
+    {
+        services.AddDbContext<TContext>(options => { options.UseInMemoryDatabase("InMemoryDbForTesting"); });
     }
 }

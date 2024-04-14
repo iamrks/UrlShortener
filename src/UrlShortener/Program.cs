@@ -1,41 +1,18 @@
-using LaunchDarkly.Sdk.Server;
-using Microsoft.EntityFrameworkCore;
-using UrlShortener;
 using UrlShortener.Extensions;
-using UrlShortener.Persistence.Interceptors;
-using UrlShortener.Services;
-using UrlShortener.Services.FeatureFlag;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// setup EF Core
-builder.Services.AddDbContext<ApplicationDbContext>(
-    (sp, optionsBuilder) =>
-    {
-        var auditableInterceptor = sp.GetService<UpdateAuditableEntitiesInterceptor>();
-
-        optionsBuilder
-            .UseSqlServer(builder.Configuration.GetConnectionString("Database"))
-            .AddInterceptors(auditableInterceptor);
-    });
-
-// Register services
-builder.Services.AddScoped<UrlShorteningService>();
-builder.Services.AddHttpClient<GithubService>();
+// Register Custom services
+builder.Services.AddDatabaseContext(builder.Configuration);
 builder.Services.AddSeqLogging(builder.Configuration);
-builder.Services.AddSingleton<UpdateAuditableEntitiesInterceptor>();
-
-var ldKey = builder.Configuration["LaunchDarkly:SdkKey"];
-builder.Services.AddSingleton(new LdClient(Configuration.Default(ldKey)));
-builder.Services.AddSingleton<ILdContextService, LdContextService>();
-builder.Services.AddSingleton<IFeatureFlagService, LaunchDarklyFeatureFlagService>();
+builder.Services.AddCustomServices(builder.Configuration);
+builder.Services.AddLaunchDarkly(builder.Configuration);
 
 var app = builder.Build();
 

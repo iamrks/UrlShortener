@@ -1,33 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace UrlShortener.Tests.Controllers;
 
-namespace UrlShortener.Tests.Controllers
+public class PingControllerTest(CustomWebApplicationFactory<Program> factory) : IClassFixture<CustomWebApplicationFactory<Program>>
 {
-    public class PingControllerTest : IClassFixture<CustomWebApplicationFactory<Program>>
+    private readonly CustomWebApplicationFactory<Program> _factory = factory;
+
+    [Fact]
+    public async Task Get_ReturnCorrectEnvironment()
     {
-        private readonly CustomWebApplicationFactory<Program> _factory;
+        // Arrange
+        var client = _factory.CreateClient();
 
-        public PingControllerTest(CustomWebApplicationFactory<Program> factory)
-        {
-            _factory = factory;
-        }
+        // Act
+        var response = await client.GetAsync("api/ping");
+        response.EnsureSuccessStatusCode();
+        var responseBody = await response.Content.ReadAsStringAsync();
 
-        [Fact]
-        public async Task Get_ReturnCorrectEnvironment()
-        {
-            // Arrange
-            var client = _factory.CreateClient();
-
-            // Act
-            var response = await client.GetAsync("api/ping");
-            response.EnsureSuccessStatusCode();
-            var responseBody = await response.Content.ReadAsStringAsync();
-
-            // Assert
-            Assert.Equal("Staging", responseBody);
-        }
+        // Assert
+        Assert.Equal("Staging", responseBody);
     }
 }

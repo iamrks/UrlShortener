@@ -1,101 +1,99 @@
-﻿namespace UrlShortener.Models
+﻿namespace UrlShortener.Models;
+
+using System.Text.Json.Serialization;
+
+public class GithubUser
 {
-    using System.Text.Json.Serialization;
+    [JsonPropertyName("login")]
+    public string Login { get; set; } = string.Empty;
 
-    public class GithubUser
-    {
-        [JsonPropertyName("login")]
-        public string Login { get; set; } = string.Empty;
+    [JsonPropertyName("id")]
+    public int Id { get; set; }
 
-        [JsonPropertyName("id")]
-        public int Id { get; set; }
+    [JsonPropertyName("node_id")]
+    public string NodeId { get; set; } = string.Empty;
 
-        [JsonPropertyName("node_id")]
-        public string NodeId { get; set; } = string.Empty;
+    [JsonPropertyName("avatar_url")]
+    public string AvatarUrl { get; set; } = string.Empty;
 
-        [JsonPropertyName("avatar_url")]
-        public string AvatarUrl { get; set; } = string.Empty;
+    [JsonPropertyName("gravatar_id")]
+    public string GravatarId { get; set; } = string.Empty;
 
-        [JsonPropertyName("gravatar_id")]
-        public string GravatarId { get; set; } = string.Empty;
+    public string Url { get; set; } = string.Empty;
 
-        public string Url { get; set; } = string.Empty;
+    [JsonPropertyName("html_url")]
+    public string HtmlUrl { get; set; } = string.Empty;
 
-        [JsonPropertyName("html_url")]
-        public string HtmlUrl { get; set; } = string.Empty;
+    [JsonPropertyName("followers_url")]
+    public string FollowersUrl { get; set; } = string.Empty;
 
-        [JsonPropertyName("followers_url")]
-        public string FollowersUrl { get; set; } = string.Empty;
+    [JsonPropertyName("following_url")]
+    public string FollowingUrl { get; set; } = string.Empty;
 
-        [JsonPropertyName("following_url")]
-        public string FollowingUrl { get; set; } = string.Empty;
+    [JsonPropertyName("gists_url")]
+    public string GistsUrl { get; set; } = string.Empty;
 
-        [JsonPropertyName("gists_url")]
-        public string GistsUrl { get; set; } = string.Empty;
+    [JsonPropertyName("starred_url")]
+    public string StarredUrl { get; set; } = string.Empty;
 
-        [JsonPropertyName("starred_url")]
-        public string StarredUrl { get; set; } = string.Empty;
+    [JsonPropertyName("subscriptions_url")]
+    public string SubscriptionsUrl { get; set; } = string.Empty;
 
-        [JsonPropertyName("subscriptions_url")]
-        public string SubscriptionsUrl { get; set; } = string.Empty;
+    [JsonPropertyName("organizations_url")]
+    public string OrganizationsUrl { get; set; } = string.Empty;
 
-        [JsonPropertyName("organizations_url")]
-        public string OrganizationsUrl { get; set; } = string.Empty;
+    [JsonPropertyName("repos_url")]
+    public string ReposUrl { get; set; } = string.Empty;
 
-        [JsonPropertyName("repos_url")]
-        public string ReposUrl { get; set; } = string.Empty;
+    [JsonPropertyName("events_url")]
+    public string EventsUrl { get; set; } = string.Empty;
 
-        [JsonPropertyName("events_url")]
-        public string EventsUrl { get; set; } = string.Empty;
+    [JsonPropertyName("received_events_url")]
+    public string ReceivedEventsUrl { get; set; } = string.Empty;
 
-        [JsonPropertyName("received_events_url")]
-        public string ReceivedEventsUrl { get; set; } = string.Empty;
+    [JsonPropertyName("type")]
+    public string Type { get; set; } = string.Empty;
 
-        [JsonPropertyName("type")]
-        public string Type { get; set; } = string.Empty;
+    [JsonPropertyName("site_admin")]
+    public bool SiteAdmin { get; set; }
 
-        [JsonPropertyName("site_admin")]
-        public bool SiteAdmin { get; set; }
+    public string Name { get; set; } = string.Empty;
 
-        public string Name { get; set; } = string.Empty;
+    public string Company { get; set; } = string.Empty;
 
-        public string Company { get; set; } = string.Empty;
+    [JsonPropertyName("blog")]
+    public string Blog { get; set; } = string.Empty;
 
-        [JsonPropertyName("blog")]
-        public string Blog { get; set; } = string.Empty;
+    [JsonPropertyName("location")]
+    public string Location { get; set; } = string.Empty;
 
-        [JsonPropertyName("location")]
-        public string Location { get; set; } = string.Empty;
+    [JsonPropertyName("email")]
+    public string Email { get; set; } = string.Empty;
 
-        [JsonPropertyName("email")]
-        public string Email { get; set; } = string.Empty;
+    [JsonPropertyName("hireable")]
+    public bool? Hireable { get; set; }
 
-        [JsonPropertyName("hireable")]
-        public bool? Hireable { get; set; }
+    [JsonPropertyName("bio")]
+    public string Bio { get; set; } = string.Empty;
 
-        [JsonPropertyName("bio")]
-        public string Bio { get; set; } = string.Empty;
+    [JsonPropertyName("twitter_username")]
+    public string TwitterUsername { get; set; } = string.Empty;
 
-        [JsonPropertyName("twitter_username")]
-        public string TwitterUsername { get; set; } = string.Empty;
+    [JsonPropertyName("public_repos")]
+    public int PublicRepos { get; set; }
 
-        [JsonPropertyName("public_repos")]
-        public int PublicRepos { get; set; }
+    [JsonPropertyName("public_gists")]
+    public int PublicGists { get; set; }
 
-        [JsonPropertyName("public_gists")]
-        public int PublicGists { get; set; }
+    [JsonPropertyName("followers")]
+    public int Followers { get; set; }
 
-        [JsonPropertyName("followers")]
-        public int Followers { get; set; }
+    [JsonPropertyName("following")]
+    public int Following { get; set; }
 
-        [JsonPropertyName("following")]
-        public int Following { get; set; }
+    [JsonPropertyName("created_at")]
+    public string CreatedAt { get; set; } = string.Empty;
 
-        [JsonPropertyName("created_at")]
-        public string CreatedAt { get; set; } = string.Empty;
-
-        [JsonPropertyName("updated_at")]
-        public string UpdatedAt { get; set; } = string.Empty;
-    }
-
+    [JsonPropertyName("updated_at")]
+    public string UpdatedAt { get; set; } = string.Empty;
 }

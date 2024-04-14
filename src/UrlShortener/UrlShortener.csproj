@@ -27,4 +27,8 @@
     <ProjectReference Include="..\..\UrlShortener.Persistence\UrlShortener.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Constants\" />
+  </ItemGroup>
+
 </Project>

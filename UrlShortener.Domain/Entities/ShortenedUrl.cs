@@ -1,6 +1,6 @@
 ﻿using UrlShortener.Domain.Primitives;
 
-namespace UrlShortener.Entities;
+namespace UrlShortener.Domain.Entities;
 
 public sealed class ShortenedUrl : IAuditableEntity
 {

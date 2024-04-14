@@ -1,16 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using UrlShortener.Persistence.DbContexts;
 
-namespace UrlShortener.Extensions
+namespace UrlShortener.Extensions;
+
+public static class MigrationExtensions
 {
-    public static class MigrationExtensions
+    public static void ApplyMigrations(this WebApplication app)
     {
-        public static void ApplyMigrations(this WebApplication app)
-        {
-            using var scope = app.Services.CreateScope();
+        using var scope = app.Services.CreateScope();
 
-            var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
-            dbContext.Database.Migrate();
-        }
+        dbContext.Database.Migrate();
     }
 }
