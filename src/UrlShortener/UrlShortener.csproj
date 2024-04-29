@@ -23,12 +23,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\UrlShortener.Domain\UrlShortener.Domain.csproj" />
-    <ProjectReference Include="..\..\UrlShortener.Persistence\UrlShortener.Persistence.csproj" />
+    <Folder Include="Constants\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Constants\" />
+    <ProjectReference Include="..\UrlShortener.Domain\UrlShortener.Domain.csproj" />
+    <ProjectReference Include="..\UrlShortener.Persistence\UrlShortener.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
