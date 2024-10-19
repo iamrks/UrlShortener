@@ -4,7 +4,7 @@ using UrlShortener.Persistence.DbContexts;
 
 namespace UrlShortener.Services;
 
-public class UrlShorteningService (ApplicationDbContext dbContext)
+public class UrlShorteningService(ApplicationDbContext dbContext)
 {
     private readonly Random random = new();
 

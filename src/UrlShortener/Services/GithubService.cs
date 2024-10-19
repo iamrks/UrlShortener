@@ -40,7 +40,7 @@ public class GithubService : IGithubService
 
     public async Task<IEnumerable<string>> GetTopUsersIds(int num, CancellationToken token)
     {
-        return  (await GetUsers(token) ?? []).Select(c => c.Login).Take(num);
+        return (await GetUsers(token) ?? []).Select(c => c.Login).Take(num);
     }
 
     public Task<IEnumerable<GithubUser>?> GetUsers(CancellationToken token)

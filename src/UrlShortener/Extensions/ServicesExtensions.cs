@@ -16,7 +16,7 @@ public static class ServicesExtensions
         {
             loginBuilder.ClearProviders();
             loginBuilder.AddConsole();
-            loginBuilder.AddSeq(configuration.GetValue<string>("Logging:Seq:ServerUrl"),                                        configuration.GetValue<string>("Logging:Seq:ApiKey"));
+            loginBuilder.AddSeq(configuration.GetValue<string>("Logging:Seq:ServerUrl"), configuration.GetValue<string>("Logging:Seq:ApiKey"));
         });
 
         return services;
@@ -42,8 +42,12 @@ public static class ServicesExtensions
             var auditableInterceptor = sp.GetService<UpdateAuditableEntitiesInterceptor>();
 
             optionsBuilder
-                .UseSqlServer(configuration.GetConnectionString("Database"))
-                .AddInterceptors(auditableInterceptor);
+                .UseSqlServer(configuration.GetConnectionString("Database"));
+
+            if (auditableInterceptor != null)
+            {
+                optionsBuilder.AddInterceptors(auditableInterceptor);
+            }
         });
 
         return services;
