@@ -12,15 +12,22 @@ public class GithubController(GithubService githubService) : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetUsers()
     {
-        return Ok(await _githubService.GetUsers(HttpContext.RequestAborted));
+        return Ok(await _githubService.GetUsersAsync(HttpContext.RequestAborted));
     }
 
     [HttpGet("/topUsers/:num")]
     public async Task<IActionResult> GetTopUsers(int num)
     {
-        var token = HttpContext.RequestAborted;
-        var ids = await _githubService.GetTopUsersIds(num, token);
-        var users = await _githubService.GetUsersByIds(ids, token);
+        var cancellationToken = HttpContext.RequestAborted;
+        var ids = await _githubService.GetTopUsersIdsAsync(num, cancellationToken);
+        var users = await _githubService.GetUsersByIdsAsync(ids, cancellationToken);
         return Ok(users);
+    }
+
+    [HttpGet("/topUser/:userId")]
+    public async Task<IActionResult> GetUserById(string userId)
+    {
+        var user = await _githubService.GetUserAsync(userId, HttpContext.RequestAborted);
+        return Ok(user);
     }
 }
