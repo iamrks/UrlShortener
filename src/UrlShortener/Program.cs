@@ -10,7 +10,7 @@ builder.Services.AddSwaggerGen();
 
 // Register Custom services
 builder.Services.AddDatabaseContext(builder.Configuration);
-builder.Services.AddHybridCache();
+builder.Services.AddCache(builder.Configuration);
 builder.Services.AddSeqLogging(builder.Configuration);
 builder.Services.AddCustomServices(builder.Configuration);
 builder.Services.AddLaunchDarkly(builder.Configuration);

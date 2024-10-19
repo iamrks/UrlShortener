@@ -1,5 +1,6 @@
 using LaunchDarkly.Sdk.Server;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Hybrid;
 using UrlShortener.Persistence.DbContexts;
 using UrlShortener.Persistence.Interceptors;
 using UrlShortener.Services;
@@ -60,6 +61,30 @@ public static class ServicesExtensions
         services.AddHttpClient<GithubService>();
 
         services.AddSingleton<UpdateAuditableEntitiesInterceptor>();
+
+        return services;
+    }
+
+    public static IServiceCollection AddCache(this IServiceCollection services, ConfigurationManager configuration)
+    {
+        services.AddStackExchangeRedisCache(options =>
+        {
+            options.ConfigurationOptions = new StackExchange.Redis.ConfigurationOptions()
+            {
+                User = configuration.GetValue<string>("Redis:User"),
+                Password = configuration.GetValue<string>("Redis:Password"),
+            };
+            options.ConfigurationOptions.EndPoints.Add(configuration.GetValue<string>("Redis:Endpoint"));
+        });
+
+        services.AddHybridCache(options =>
+        {
+            //options.DefaultEntryOptions = new HybridCacheEntryOptions
+            //{
+            //    Expiration = TimeSpan.FromSeconds(10),
+            //    LocalCacheExpiration = TimeSpan.FromSeconds(5)
+            //};
+        });
 
         return services;
     }
