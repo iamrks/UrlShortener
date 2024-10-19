@@ -16,6 +16,9 @@ builder.Services.AddLaunchDarkly(builder.Configuration);
 
 var app = builder.Build();
 
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
@@ -30,6 +33,8 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapFallbackToFile("/index.html");
 
 app.Run();
 

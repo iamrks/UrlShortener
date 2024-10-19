@@ -22,6 +22,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UrlShortener.Domain", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UrlShortener.Persistence", "src\UrlShortener.Persistence\UrlShortener.Persistence.csproj", "{1E391BCA-1A3F-4445-A3BC-8B89914677AD}"
 EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "UrlShortener.Client", "UrlShortener.Client\UrlShortener.Client.esproj", "{C9C236DC-D413-46CA-820D-506FBED4F4A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,12 @@ Global
 		{1E391BCA-1A3F-4445-A3BC-8B89914677AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E391BCA-1A3F-4445-A3BC-8B89914677AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E391BCA-1A3F-4445-A3BC-8B89914677AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9C236DC-D413-46CA-820D-506FBED4F4A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9C236DC-D413-46CA-820D-506FBED4F4A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9C236DC-D413-46CA-820D-506FBED4F4A5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C9C236DC-D413-46CA-820D-506FBED4F4A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9C236DC-D413-46CA-820D-506FBED4F4A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9C236DC-D413-46CA-820D-506FBED4F4A5}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +61,7 @@ Global
 		{60FEC657-3F52-45D6-A934-6D0BAFBCF0CB} = {56BB2361-6C40-441C-AEA5-F13709C430F0}
 		{7C174308-D35C-427D-8F6A-90200F939EFB} = {F4B9798F-5680-474B-9B23-E56EF858BD6E}
 		{1E391BCA-1A3F-4445-A3BC-8B89914677AD} = {F4B9798F-5680-474B-9B23-E56EF858BD6E}
+		{C9C236DC-D413-46CA-820D-506FBED4F4A5} = {F4B9798F-5680-474B-9B23-E56EF858BD6E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5D31EFF8-06F5-4EC1-8BDF-61F18C409C8D}
