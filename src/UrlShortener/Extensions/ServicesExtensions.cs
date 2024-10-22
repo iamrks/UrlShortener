@@ -1,6 +1,7 @@
 using LaunchDarkly.Sdk.Server;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Hybrid;
+using Polly;
 using UrlShortener.Persistence.DbContexts;
 using UrlShortener.Persistence.Interceptors;
 using UrlShortener.Services;
@@ -58,7 +59,9 @@ public static class ServicesExtensions
         this IServiceCollection services, IConfiguration configuration)
     {
         services.AddScoped<UrlShorteningService>();
-        services.AddHttpClient<GithubService>();
+        services.AddHttpClient<GithubService>()
+                .AddTransientHttpErrorPolicy(policy => policy.WaitAndRetryAsync(3, _ => TimeSpan.FromSeconds(2)))
+                .AddTransientHttpErrorPolicy(policy => policy.CircuitBreakerAsync(5, TimeSpan.FromSeconds(5)));
 
         services.AddSingleton<UpdateAuditableEntitiesInterceptor>();
 
