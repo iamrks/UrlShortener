@@ -2,6 +2,8 @@ using LaunchDarkly.Sdk.Server;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Hybrid;
 using Polly;
+using System.Net.Http.Headers;
+using System.Net.Http;
 using UrlShortener.Persistence.DbContexts;
 using UrlShortener.Persistence.Interceptors;
 using UrlShortener.Services;
@@ -58,14 +60,26 @@ public static class ServicesExtensions
     public static IServiceCollection AddCustomServices(
         this IServiceCollection services, IConfiguration configuration)
     {
+        AddGithubHttpClient(services, configuration);
+        
         services.AddScoped<UrlShorteningService>();
-        services.AddHttpClient<GithubService>()
-                .AddTransientHttpErrorPolicy(policy => policy.WaitAndRetryAsync(3, _ => TimeSpan.FromSeconds(2)))
-                .AddTransientHttpErrorPolicy(policy => policy.CircuitBreakerAsync(5, TimeSpan.FromSeconds(5)));
-
         services.AddSingleton<UpdateAuditableEntitiesInterceptor>();
 
         return services;
+    }
+
+    private static void AddGithubHttpClient(IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddHttpClient<IGithubService, GithubService>(c =>
+        {
+            var config = configuration.GetSection("HttpClient:Github");
+
+            c.BaseAddress = new Uri(config?["BaseAddress"] ?? "");
+            c.DefaultRequestHeaders.Add("User-Agent", "C# HttpClient");
+            c.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", config?["Token"]);
+        })
+        .AddTransientHttpErrorPolicy(policy => policy.WaitAndRetryAsync(3, _ => TimeSpan.FromSeconds(2)))
+        .AddTransientHttpErrorPolicy(policy => policy.CircuitBreakerAsync(5, TimeSpan.FromSeconds(5)));
     }
 
     public static IServiceCollection AddCache(this IServiceCollection services, ConfigurationManager configuration)

@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Caching.Hybrid;
-using System.Net.Http.Headers;
 using UrlShortener.Models;
 
 namespace UrlShortener.Services;
@@ -15,34 +14,16 @@ public interface IGithubService
 public class GithubService : IGithubService
 {
     private readonly HttpClient _httpClient;
-    private readonly IConfiguration _configuration;
     private readonly ILogger<GithubService> _logger;
     private readonly HybridCache _hybridCache;
 
     public GithubService(HttpClient httpClient,
-                            IConfiguration configuration,
                             ILogger<GithubService> logger,
                             HybridCache hybridCache)
     {
         _httpClient = httpClient;
-        _configuration = configuration;
         _logger = logger;
         _hybridCache = hybridCache;
-        SetDefaults();
-    }
-
-    private void SetDefaults()
-    {
-        var config = _configuration.GetSection("HttpClient:Github");
-
-        if (config is null)
-        {
-            _logger.LogError("HttpClient:Github config not available");
-        }
-
-        _httpClient.BaseAddress = new Uri(config?["BaseAddress"] ?? "");
-        _httpClient.DefaultRequestHeaders.Add("User-Agent", "C# HttpClient");
-        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", config?["Token"]);
     }
 
     public async Task<IEnumerable<string>> GetTopUsersIdsAsync(int num, CancellationToken token)

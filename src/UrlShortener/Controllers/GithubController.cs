@@ -5,9 +5,9 @@ namespace UrlShortener.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class GithubController(GithubService githubService) : ControllerBase
+public class GithubController(IGithubService githubService) : ControllerBase
 {
-    private readonly GithubService _githubService = githubService;
+    private readonly IGithubService _githubService = githubService;
 
     [HttpGet]
     public async Task<IActionResult> GetUsers()
