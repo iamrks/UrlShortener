@@ -1,9 +1,8 @@
 using LaunchDarkly.Sdk.Server;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Caching.Hybrid;
 using Polly;
+using Swashbuckle.AspNetCore.Filters;
 using System.Net.Http.Headers;
-using System.Net.Http;
 using UrlShortener.Persistence.DbContexts;
 using UrlShortener.Persistence.Interceptors;
 using UrlShortener.Services;
@@ -106,4 +105,14 @@ public static class ServicesExtensions
         return services;
     }
 
+    public static void AddSwaggerSupport(this IServiceCollection services)
+    {
+        services.AddSwaggerGen(c =>
+        {
+            c.EnableAnnotations();
+            c.ExampleFilters();
+        });
+
+        services.AddSwaggerExamplesFromAssemblies(typeof(Program).Assembly);
+    }
 }

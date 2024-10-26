@@ -1,5 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
+using Swashbuckle.AspNetCore.Filters;
+using UrlShortener.Models;
 using UrlShortener.Services;
+using UrlShortener.SwaggerResponse;
 
 namespace UrlShortener.Controllers;
 
@@ -25,6 +29,8 @@ public class GithubController(IGithubService githubService) : ControllerBase
     }
 
     [HttpGet("/topUser/:userId")]
+    [SwaggerResponse(200, "Successful response", typeof(GithubUser))]
+    [SwaggerResponseExample(200, typeof(GithubUserResponse))]
     public async Task<IActionResult> GetUserById(string userId)
     {
         var user = await _githubService.GetUserAsync(userId, HttpContext.RequestAborted);
