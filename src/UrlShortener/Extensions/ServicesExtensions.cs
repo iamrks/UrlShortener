@@ -90,7 +90,7 @@ public static class ServicesExtensions
                 User = configuration.GetValue<string>("Redis:User"),
                 Password = configuration.GetValue<string>("Redis:Password"),
             };
-            options.ConfigurationOptions.EndPoints.Add(configuration.GetValue<string>("Redis:Endpoint"));
+            options.ConfigurationOptions.EndPoints.Add(configuration.GetValue<string>("Redis:Endpoint") ?? string.Empty);
         });
 
         services.AddHybridCache(options =>
