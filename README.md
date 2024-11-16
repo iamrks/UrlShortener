@@ -90,3 +90,8 @@ $ docker images
 # To remove a image
 $ docker rmi iamrks/urls --force
 ```
+
+## .Net Aspire
+1. Add .Net Aspire Service Default Project to solution
+2. Then add reference and update Program.cs
+3. Check [Commit](https://github.com/iamrks/UrlShortener/commit/fcb8dff04bab50014f1c5fea374617fe72dbcd38)
