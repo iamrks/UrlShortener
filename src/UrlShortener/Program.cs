@@ -1,3 +1,4 @@
+using Serilog;
 using UrlShortener.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,13 +9,19 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerSupport();
 
-// Aspire Service Defualts
+// Aspire Service Defaults
 builder.AddServiceDefaults();
 
 // Register Custom services
 builder.Services.AddDatabaseContext(builder.Configuration);
 builder.Services.AddCache(builder.Configuration);
-builder.Services.AddSeqLogging(builder.Configuration);
+
+// builder.Services.AddSeqLogging(builder.Configuration);
+builder.Host.UseSerilog((context, configuration) =>
+{
+    configuration.ReadFrom.Configuration(context.Configuration);
+});
+
 builder.Services.AddCustomServices(builder.Configuration);
 builder.Services.AddLaunchDarkly(builder.Configuration);
 
@@ -34,6 +41,8 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 }
 
 // app.UseHttpsRedirection();
+
+app.UseSerilogRequestLogging();
 
 app.UseAuthorization();
 
