@@ -8,6 +8,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerSupport();
 
+// Aspire Service Defualts
+builder.AddServiceDefaults();
+
 // Register Custom services
 builder.Services.AddDatabaseContext(builder.Configuration);
 builder.Services.AddCache(builder.Configuration);
@@ -35,6 +38,8 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapDefaultEndpoints();
 
 app.MapFallbackToFile("/index.html");
 

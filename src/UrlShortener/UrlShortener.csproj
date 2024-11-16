@@ -7,7 +7,7 @@
     <InvariantGlobalization>false</InvariantGlobalization>
     <UserSecretsId>a5186a8b-ac12-4709-ad8e-37fa35961311</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <SpaRoot>..\..\UrlShortener.Client</SpaRoot>
+    <SpaRoot>..\UrlShortener.Client</SpaRoot>
     <SpaProxyLaunchCommand>npm start</SpaProxyLaunchCommand>
     <SpaProxyServerUrl>https://localhost:4200</SpaProxyServerUrl>
   </PropertyGroup>
@@ -36,9 +36,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\UrlShortener.Client\UrlShortener.Client.esproj" />
+    <ProjectReference Include="..\UrlShortener.Client\UrlShortener.Client.esproj" />
     <ProjectReference Include="..\UrlShortener.Domain\UrlShortener.Domain.csproj" />
     <ProjectReference Include="..\UrlShortener.Persistence\UrlShortener.Persistence.csproj" />
+    <ProjectReference Include="..\ServiceDefaults\ServiceDefaults.csproj" />
   </ItemGroup>
 
 </Project>
