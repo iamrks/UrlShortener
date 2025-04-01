@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Polly;
 using Swashbuckle.AspNetCore.Filters;
 using System.Net.Http.Headers;
+using System.Reflection;
 using UrlShortener.Persistence.DbContexts;
 using UrlShortener.Persistence.Interceptors;
 using UrlShortener.Services;
@@ -43,9 +44,11 @@ public static class ServicesExtensions
         (sp, optionsBuilder) =>
         {
             var auditableInterceptor = sp.GetService<UpdateAuditableEntitiesInterceptor>();
+            var migrationsAssembly = typeof(Program).GetTypeInfo().Assembly.GetName().Name;
 
             optionsBuilder
-                .UseSqlServer(configuration.GetConnectionString("Database"));
+                .UseSqlServer(configuration.GetConnectionString("Database"),
+                    sql => sql.MigrationsAssembly(migrationsAssembly));
 
             if (auditableInterceptor != null)
             {
