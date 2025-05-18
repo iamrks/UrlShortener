@@ -11,7 +11,7 @@ namespace UrlShortener.CronJobs
         public override async Task ExecuteAsync(object[] args)
         {
             await Task.Delay(1000);
-            // Login to Prepare Report and Send over the email
+            // Logic to Prepare Report and Send over the email
             logger.LogInformation($"Report Generated and share over the email at {DateTime.Now}");
         }
     }
