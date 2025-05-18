@@ -1,5 +1,7 @@
+using Hangfire;
 using Serilog;
 using UrlShortener.Extensions;
+using UrlShortener.Framework.Cron;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +17,7 @@ builder.AddServiceDefaults();
 // Register Custom services
 builder.Services.AddDatabaseContext(builder.Configuration);
 builder.Services.AddCache(builder.Configuration);
+builder.Services.AddCronJobServices(builder.Configuration);
 
 // builder.Services.AddSeqLogging(builder.Configuration);
 builder.Host.UseSerilog((context, configuration) =>
@@ -29,6 +32,8 @@ var app = builder.Build();
 
 app.UseDefaultFiles();
 app.UseStaticFiles();
+app.UseHangfireDashboard("/jobs");
+app.RegisterCronJobs(builder.Configuration);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment() || app.Environment.IsProduction())

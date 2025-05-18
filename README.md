@@ -18,6 +18,9 @@ $ dotnet user-secrets set 'HttpClient:Github:Token' '<Token>'
 $ dotnet user-secrets set "ConnectionStrings:Database" "<Database_Connection_String>"
 $ dotnet user-secrets set "Seq:ApiKey" "<Api_Key>"
 $ dotnet user-secrets set "LaunchDarkly:SdkKey" "<SdkKey>"
+$ dotnet user-secrets set "Redis:Endpoint" "<Endpoint>"
+$ dotnet user-secrets set "Redis:Password" "<Password>"
+$ dotnet user-secrets set "Redis:User" "<User>"
 ```
 
 ## Development with Visual Studio
